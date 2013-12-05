@@ -20,10 +20,10 @@
   },
   "devDependencies": {
     "mocha": "~1.15.1",
-    "coffee-script": "~1.6.3",
-    "understream": "~0.8.2"
+    "coffee-script": "~1.6.3"
   },
   "dependencies": {
+    "understream": "~0.8.2",
     "underscore": "~1.5.2"
   }
 }
