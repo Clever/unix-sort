@@ -27,8 +27,7 @@ var array = ['a', 'e', 'b', 'd', 'e', 'c'];
 var objects = array.map(function (el) {return {item: el}});
 
 var readable = new ArrayStream(objects);
-var sort_on_hash = unix_sort(['item']);
-readable.pipe(sort_on_hash); // 'a', 'b', 'c', 'd', 'e', 'e'
+readable.pipe(unix_sort(['item'])); // 'a', 'b', 'c', 'd', 'e', 'e'
 ```
 
 Now for one a bit more complex:
