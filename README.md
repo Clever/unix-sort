@@ -5,7 +5,6 @@ This allows sorting of very large data sets in a stream interface that Node norm
 
 ## Install
 
-Forthcoming:
 ```
 npm install unix-sort
 ```
