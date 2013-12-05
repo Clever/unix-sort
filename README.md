@@ -14,21 +14,21 @@ npm install unix-sort
 
 `unix-sort` expects that you are streaming it JavaScript objects and takes a single argument:
 an array of all the keys you want to sort by, in order.
+It assumes that all of the keys have a string value.
 
 ## Examples
 
 *NOTE: The implementation of ArrayStream is left as an exercise to the reader*
 
 ```javascript
-var _ = require('underscore');
 var unix_sort = require('unix-sort');
 
-var array = [1, 5, 2, 4, 5, 3];
-var objects = _(array).map(function (el) {return {hash: 0, item: el}});
+var array = ['a', 'e', 'b', 'd', 'e', 'c'];
+var objects = array.map(function (el) {return {item: el}});
 
 var readable = new ArrayStream(objects);
-var sort_on_hash = unix_sort(['hash']);
-readable.pipe(sort_on_hash); // 1, 2, 3, 4, 5, 5
+var sort_on_hash = unix_sort(['item']);
+readable.pipe(sort_on_hash); // 'a', 'b', 'c', 'd', 'e', 'e'
 ```
 
 Now for one a bit more complex:
@@ -37,33 +37,27 @@ Now for one a bit more complex:
 var dogs = [
     {
         name: 'Toto',
-        owner: 'Dorothy',
-        age: 23
+        owner: 'Dorothy'
     },
     {
         name: 'Lassie',
-        owner: 'Timmy',
-        age: 7,
-        note: 'Lassie from the second movie'
+        owner: 'Alex',
+        notes: "Owned by Timmy's son"
     },
     {
         name: 'Lassie',
-        owner: 'Timmy',
-        age: 9,
-        note: 'Lassie from the first movie'
+        owner: 'Timmy'
     },
     {
         name: 'Old Yeller',
-        owner: 'Travis Coates',
-        age: 3
+        owner: 'Travis Coates'
     },
     {
         name: 'Balto',
-        owner: 'Gunnar Kaasen',
-        age: 11
+        owner: 'Gunnar Kaasen'
     }
 ];
 
 var readable = new ArrayStream(dogs);
-readable.pipe(unix_sort(['name', 'age']));
+readable.pipe(unix_sort(['name', 'owner']));
 ```
