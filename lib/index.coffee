@@ -27,9 +27,9 @@ module.exports = (keys, options={}) ->
       vals.join(options.delim) + options.delim + JSON.stringify(obj) + '\n'
     .spawn('sort', do ->
       key_opts = _.flatten _([1..keys.length]).map (i) -> ['-k', "#{i},#{i}"]
-      [ '-s'            # stable sort
-        '-t', options.delim     # column separator
-      ].concat key_opts # which columns to sort by
+      [ '-s'                # stable sort
+        '-t', options.delim # column separator
+      ].concat key_opts     # which columns to sort by
     )
     .spawn('cut', ['-d', options.delim, '-f', keys.length + 1])
     .split('\n')
