@@ -1,7 +1,7 @@
 {
   "name": "unix-sort",
   "version": "0.0.0",
-  "description": "unix-sort =========",
+  "description": "unix-sort",
   "main": "index.js",
   "directories": {
     "test": "test"
