@@ -1,6 +1,6 @@
 # unix-sort
 
-Sort using the unix sort command.
+Sort streams of json objects using the unix sort command.
 This allows sorting of very large data sets in a stream interface that Node normally can't handle due to memory constraints.
 
 ## Install
