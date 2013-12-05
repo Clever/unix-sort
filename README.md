@@ -43,12 +43,14 @@ var dogs = [
     {
         name: 'Lassie',
         owner: 'Timmy',
-        age: 7
+        age: 7,
+        note: 'Lassie from the second movie'
     },
     {
         name: 'Lassie',
         owner: 'Timmy',
-        age: 9
+        age: 9,
+        note: 'Lassie from the first movie'
     },
     {
         name: 'Old Yeller',
