@@ -41,7 +41,7 @@ var dogs = [
     {
         name: 'Lassie',
         owner: 'Alex',
-        notes: "Owned by Timmy's son"
+        notes: "Owned by Timmy's brother after he died in the well"
     },
     {
         name: 'Lassie',
