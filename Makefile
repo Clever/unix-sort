@@ -1,8 +1,8 @@
 # usage:
 # `make build` or `make` compiles lib/*.coffee to lib/*.js (for all changed lib/*.coffee)
-# `make lib/transform/each.coffee` compiles just that file to lib-js
+# `make lib/some_file.coffee` compiles just that file to lib-js
 # `make test` runs all the tests
-# `make test/each.coffee` runs just that test
+# `make some_file` runs just the test `test/some_file.coffee`
 .PHONY: test test-cov
 TESTS=$(shell cd test && ls *.coffee | sed s/\.coffee$$//)
 LIBS=$(shell find . -regex "^./lib\/.*\.coffee\$$" | sed s/\.coffee$$/\.js/ | sed s/lib/lib-js/)
