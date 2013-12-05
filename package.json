@@ -1,0 +1,29 @@
+{
+  "name": "unix-sort",
+  "version": "0.0.0",
+  "description": "unix-sort",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make -Br test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Clever/unix-sort.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Clever/unix-sort/issues"
+  },
+  "devDependencies": {
+    "mocha": "~1.15.1",
+    "coffee-script": "~1.6.3"
+  },
+  "dependencies": {
+    "understream": "~0.8.2",
+    "underscore": "~1.5.2"
+  }
+}
