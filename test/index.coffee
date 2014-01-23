@@ -1,10 +1,9 @@
 _           = require 'underscore'
 assert      = require 'assert'
 {Readable}  = require 'stream'
-understream = require 'understream'
+Understream = require 'understream'
 unix_sort   = require '../index'
-_.mixin understream.exports()
-understream.mixin unix_sort, 'unix_sort', true
+Understream.mixin unix_sort, 'unix_sort', true
 
 describe 'sorting the input streams', ->
   _([
@@ -106,11 +105,11 @@ describe 'sorting the input streams', ->
           r = new Readable objectMode: true
           _.each input, (o) -> r.push o
           r.push null
-          _.stream(r).unix_sort(keys).stream()
+          new Understream(r).unix_sort(keys).stream()
       , (input_stream, stream_name) ->
         it "#{stream_name} #{name}", (done) ->
           start = process.hrtime()
-          _.stream(input_stream()).run (err, result) ->
+          new Understream(input_stream()).run (err, result) ->
             finish = process.hrtime start
             console.log 'elapsed seconds %d.%d', finish[0], finish[1]
             assert.ifError err

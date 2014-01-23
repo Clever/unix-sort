@@ -1,7 +1,6 @@
 _           = require 'underscore'
 {Transform} = require 'stream'
-understream = require 'understream'
-_.mixin understream.exports()
+Understream = require 'understream'
 
 class JSONParser extends Transform
   constructor: (@options) ->
@@ -9,12 +8,12 @@ class JSONParser extends Transform
   _transform: (chunk, encoding, cb) ->
     return cb() unless chunk.length # Ignore blank lines
     setImmediate -> cb null, JSON.parse chunk
-understream.mixin JSONParser, 'parseJSON'
+Understream.mixin JSONParser, 'parseJSON'
 
 module.exports = (keys, options={}) ->
   _(options).defaults
     delim: '\t'
-  _.stream()
+  new Understream()
     .map (obj) ->
       vals = _.chain(keys)
         .map((key) -> obj[key])
