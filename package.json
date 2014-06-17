@@ -25,5 +25,8 @@
   "dependencies": {
     "understream": "~0.8.2",
     "underscore": "~1.5.2"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
