@@ -13,6 +13,7 @@ Understream.mixin JSONParser, 'parseJSON'
 module.exports = (keys, options={}) ->
   _(options).defaults
     delim: '\t'
+    tmp_dir: null
   new Understream()
     .map (obj) ->
       vals = _.chain(keys)
@@ -26,9 +27,13 @@ module.exports = (keys, options={}) ->
       vals.join(options.delim) + options.delim + JSON.stringify(obj) + '\n'
     .spawn('sort', do ->
       key_opts = _.flatten _([1..keys.length]).map (i) -> ['-k', "#{i},#{i}"]
-      [ '-s'                # stable sort
+      flags = [
+        '-s'                # stable sort
         '-t', options.delim # column separator
-      ].concat key_opts     # which columns to sort by
+      ]
+      flags = flags.concat ["--temporary-directory", options.tmp_dir] if options.tmp_dir
+      flags = flags.concat key_opts # which columns to sort by
+      flags
     )
     .spawn('cut', ['-d', options.delim, '-f', keys.length + 1])
     .split('\n')
