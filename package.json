@@ -1,6 +1,6 @@
 {
   "name": "unix-sort",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "unix-sort",
   "main": "index.js",
   "directories": {
