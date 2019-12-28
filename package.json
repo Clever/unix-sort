@@ -19,8 +19,8 @@
     "url": "https://github.com/Clever/unix-sort/issues"
   },
   "devDependencies": {
-    "mocha": "~1.15.1",
-    "coffee-script": "~1.6.3"
+    "coffee-script": "~1.6.3",
+    "mocha": "^2.5.3"
   },
   "dependencies": {
     "underscore": "~1.5.2",
