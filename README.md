@@ -59,3 +59,4 @@ var dogs = [
 var readable = new ArrayStream(dogs);
 readable.pipe(unix_sort(['name', 'owner']));
 ```
+test
